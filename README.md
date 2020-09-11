@@ -1,7 +1,9 @@
-1.MVC Framework.
+1.MVC Framework(OOP).
 
-2.Login system.
+2.Setting PDO and Routting.
 
-3.Google Login.
+3.Login system.
 
-4.Connect blog and chat.
+4.Google Login.
+
+5.Connect blog and chat.
