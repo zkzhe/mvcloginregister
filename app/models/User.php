@@ -1,26 +1,29 @@
 <?php
-class User {
+class User
+{
     private $db;
     public $google_client;
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = new Database;
-        $this->google_client =new  Google_Client;
+        $this->google_client = new  Google_Client;
         $this->google_client->setClientId('335862326751-rkjpdtkng4f4rboeipi71nq1sdscd8se.apps.googleusercontent.com');
 
         //Set the OAuth 2.0 Client Secret key
         $this->google_client->setClientSecret('p_a0JHTv-nqu-t5LCmN2kK5_');
 
         //Set the OAuth 2.0 Redirect URI
-        $this->google_client->setRedirectUri('http://localhost/mvcloginregister/users/profile');
+        $this->google_client->setRedirectUri('https://mvcloginregister.zkzhe.tw/users/profile');
 
         //
         $this->google_client->addScope('email');
 
         $this->google_client->addScope('profile');
-        $GLOBALS['googlelogin']= '<a href="'.$this->google_client->createAuthUrl().'"><img src="https://www.tutsmake.com/wp-content/uploads/2019/12/google-login-image.png" width="210px" height="55px"/></a>';
+        $GLOBALS['googlelogin'] = '<a href="' . $this->google_client->createAuthUrl() . '"><img src="https://www.tutsmake.com/wp-content/uploads/2019/12/google-login-image.png" width="210px" height="55px"/></a>';
     }
 
-    public function register($data) {
+    public function register($data)
+    {
         $this->db->query('INSERT INTO users (username, email, password) VALUES(:username, :email, :password)');
 
         //Bind values
@@ -36,7 +39,8 @@ class User {
         }
     }
 
-    public function login($username, $password) {
+    public function login($username, $password)
+    {
         $this->db->query('SELECT * FROM users WHERE username = :username');
 
         //Bind value
@@ -54,7 +58,8 @@ class User {
     }
 
     //Find user by email. Email is passed in by the Controller.
-    public function findUserByEmail($email) {
+    public function findUserByEmail($email)
+    {
         //Prepared statement
         $this->db->query('SELECT * FROM users WHERE email = :email');
 
@@ -62,7 +67,7 @@ class User {
         $this->db->bind(':email', $email);
 
         //Check if email is already registered
-        if($this->db->rowCount > 0) {
+        if ($this->db->rowCount > 0) {
             return true;
         } else {
             return false;

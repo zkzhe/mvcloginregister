@@ -1,10 +1,10 @@
 <?php
-   require APPROOT . '/views/includes/head.php';
+require APPROOT . '/views/includes/head.php';
 ?>
 
 <div class="navbar">
     <?php
-       require APPROOT . '/views/includes/navigation.php';
+    require APPROOT . '/views/includes/navigation.php';
     ?>
 </div>
 
@@ -12,7 +12,7 @@
     <div class="wrapper-login">
         <h2>Sign in</h2>
 
-        <form action="<?php echo URLROOT; ?>/users/login" method ="POST">
+        <form action="<?php echo URLROOT; ?>/users/login" method="POST">
             <input type="text" placeholder="Username *" name="username">
             <span class="invalidFeedback">
                 <?php echo $data['usernameError']; ?>
@@ -28,9 +28,9 @@
             <p class="options">Not registered yet? <a href="<?php echo URLROOT; ?>/users/register">Create an account!</a></p>
         </form>
 
-          <?php
-          echo '<div  class="google" align="center">'.$GLOBALS['googlelogin']. '</div>';
-          ?>
-        
+        <?php
+        echo '<div  class="google" align="center">' . $GLOBALS['googlelogin'] . '</div>';
+        ?>
+
     </div>
 </div>

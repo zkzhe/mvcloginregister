@@ -1,10 +1,10 @@
 <?php
-   require APPROOT . '/views/includes/head.php';
+require APPROOT . '/views/includes/head.php';
 ?>
 
 <div class="navbar">
     <?php
-       require APPROOT . '/views/includes/navigation.php';
+    require APPROOT . '/views/includes/navigation.php';
     ?>
 </div>
 
@@ -12,11 +12,7 @@
     <div class="wrapper-login">
         <h2>Register</h2>
 
-            <form
-                id="register-form"
-                method="POST"
-                action="<?php echo URLROOT; ?>/users/register"
-                >
+        <form id="register-form" method="POST" action="<?php echo URLROOT; ?>/users/register">
             <input type="text" placeholder="Username *" name="username">
             <span class="invalidFeedback">
                 <?php echo $data['usernameError']; ?>
